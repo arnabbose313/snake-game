@@ -9,7 +9,6 @@ let food_pos = { x: 30, y: 30 };
 let body_pos = {};
 let score = 0;
 let cp = 0;
-let speed = 200;
 alert("Start the game.");
 let infinite = setInterval(function () {
     if (position["x"] > 0 && position["y"] > 0 && position["x"] < 21 && position["x"] < 21) {
@@ -49,10 +48,9 @@ let infinite = setInterval(function () {
             restart();
         }
     }
-    speed = speed - ((speed * 5) / 100);
     score_board.innerHTML = score;
     sn_head.setAttribute("style", "grid-area: " + position["y"] + " / " + position["x"] + " ;");
-}, speed);
+}, 350);
 
 function body_inc() {
     let body = document.createElement("div");
@@ -69,7 +67,7 @@ document.addEventListener("keypress", function (e) {
 });
 
 function food_placer() {
-    let food_pos = { x: Math.floor(Math.random() * (20 - 1) + 1), y: Math.floor(Math.random() * (20 - 1) + 1) };
+    food_pos = { x: Math.floor(Math.random() * (20 - 1) + 1), y: Math.floor(Math.random() * (20 - 1) + 1) };
     food.setAttribute("style", "grid-area: " + food_pos["y"] + " / " + food_pos["x"] + " ;");
 }
 
